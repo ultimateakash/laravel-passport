@@ -96,8 +96,8 @@ class AuthController extends Controller
         $response = Http::post("{$baseUrl}/oauth/token", [
             'username' => $request->email,
             'password' => $request->password,
-            'client_id' => config('passport.personal_access_client.id'),
-            'client_secret' => config('passport.personal_access_client.secret'),
+            'client_id' => config('passport.password_grant_client.id'),
+            'client_secret' => config('passport.password_grant_client.secret'),
             'grant_type' => 'password'
         ]);
 
@@ -122,8 +122,8 @@ class AuthController extends Controller
         $baseUrl = url('/');
         $response = Http::post("{$baseUrl}/oauth/token", [
             'refresh_token' => $request->refresh_token,
-            'client_id' => config('passport.personal_access_client.id'),
-            'client_secret' => config('passport.personal_access_client.secret'),
+            'client_id' => config('passport.password_grant_client.id'),
+            'client_secret' => config('passport.password_grant_client.secret'),
             'grant_type' => 'refresh_token'
         ]);
 
